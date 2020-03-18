@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="/static/build/styles/samples.37902ba3b7fe.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="style.css">
+           
+        <title>Canarias LIFE</title>
+    </head>
+    <body>
+        
+        <div id="fullscreen" class="full">
+            <div class="cont-iframe">   
+                <div class="cLogo"><a href="#"><img src="./logo.jpg" alt="logo" width= "150px" height= "75px"></a></div>  
+                <iframe allowfullscreen="" src="https://www.youtube.com/embed/tgbNymZ7vqY" scrolling="auto" class="fr">
+                    
+                Texto alternativo para navegadores que no aceptan iframes
+                </iframe>
+                <button id="fullscreen-button" class="btt">Entrar en pantalla completa</button>
+            </div> 
+        
+       </div>      
+<script>
+        var fullscreenButton = document.getElementById("fullscreen-button");
+        var fullscreenDiv    = document.getElementById("fullscreen");
+        var fullscreenFunc   = fullscreenDiv.requestFullscreen;
+
+        if (!fullscreenFunc) {
+            ['mozRequestFullScreen',
+            'msRequestFullscreen',
+            'webkitRequestFullScreen'].forEach(function (req) {
+                fullscreenFunc = fullscreenFunc || fullscreenDiv[req];
+            });
+        }
+
+        function enterFullscreen() {
+        fullscreenFunc.call(fullscreenDiv);
+        }
+
+        fullscreenButton.addEventListener('click', enterFullscreen);
+
+        </script>
+        
+    </body>
+</html>

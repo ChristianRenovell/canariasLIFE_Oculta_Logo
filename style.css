@@ -1,0 +1,42 @@
+
+.full{
+  
+  height: 800px;
+  margin-right: 20%;
+  margin-left: 20%;                                       
+                
+}
+.btt{
+  position: relative;
+  float: right;
+  bottom: -97%;
+  
+}
+.cont-iframe{ 
+  position: relative;                                            
+  width: auto;
+  height: 100%;              
+  background-color: aquamarine;
+  }
+.cLogo{ 
+  position: absolute;                                          
+  height: 100px;    
+  right: 0px;   
+  z-index: 1000;                  
+  }
+.fr{               
+position:absolute;              
+width: 100%;
+z-index: 0;
+margin:0; 
+padding:0; 
+height:100%;
+display:block;
+border:none;  
+}
+
+
+img{
+margin-right: 40px;
+margin-top: 20px;
+}
