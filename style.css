@@ -1,29 +1,37 @@
-
-.full{
-  
-  height: 800px;
-  margin-right: 20%;
-  margin-left: 20%;                                       
+/*div que pasa a pantalla completa, en este contenedor se debe ajustar el tamaño minimizado*/
+.full{  
+  width: 920px;
+  height: 515px;
+  margin-right: auto;
+  margin-left: auto;                                       
                 
 }
-.btt{
-  position: relative;
-  float: right;
-  bottom: -97%;
-  
-}
+/*contenedor del iframe*/
 .cont-iframe{ 
   position: relative;                                            
   width: auto;
   height: 100%;              
   background-color: aquamarine;
   }
+
+/*contenedor del logo*/
 .cLogo{ 
-  position: absolute;                                          
-  height: 100px;    
+  position: absolute;                                             
   right: 0px;   
-  z-index: 1000;                  
+  z-index: 1000; 
+  
+                   
   }
+/*propiedades de la imagen*/
+img{ 
+    width: 120px;
+    position: relative;
+    margin-right: 10px;
+    margin-top: 10px;
+     
+  }
+
+/*ifrmae*/
 .fr{               
 position:absolute;              
 width: 100%;
@@ -35,8 +43,86 @@ display:block;
 border:none;  
 }
 
+/*boton para pasar a pantalla completa*/
+.btt{
+  position: relative;
+  width: 55px;
+  height: 55px;
+  position: relative;
+  float: right;
+  bottom: -94%;
+  right: 0.6%;
+  opacity: 0.0;
+  cursor: pointer;
+  background-color: black;
+  border-radius: 120px;
+  
+}
+/*muestra el botom ya que desaparecen los controles del video(por lo menos en el video de prueva de youtube)*/
+.btt:hover{
+  opacity: 0.1;
+}
 
-img{
-margin-right: 40px;
-margin-top: 20px;
+#fullscreen:-webkit-full-screen,
+#fullscreen:-moz-full-screen,
+#fullscreen:-ms-fullscreen,
+#fullscreen:fullscreen {
+    width: 100vw;
+    height: 100vh;
+    }
+  
+ /*media________________________________________*/
+ 
+ @media (max-width: 1400px) {
+  .full {
+    width: 800px;
+    height: 455px;
+  }
+  img{
+    width: 110px;
+  }
+}
+  @media (max-width: 1100px) {
+    .full {
+      width: 750px;
+      height: 450px;
+    }
+    img{
+      width: 100px;
+    }
+}
+@media (max-width: 1000px) {
+  .full {
+    width: 650px;
+    height: 365px;
+  }
+  img{
+    width: 80px;
+  }
+  .btt{
+    bottom: -92%;
+  }
+}
+
+@media (max-width: 900px) {
+  .full {
+    width: 500px;
+    height: 275px;
+  }
+  img{
+    width: 60px;
+  }
+  .btt{
+    bottom: -90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .full {
+    width: 450px;
+    height: 245px;
+  }
+  .btt{
+    bottom: -88%;
+  }
 }

@@ -5,42 +5,58 @@
         <meta charset="utf-8">
         <link href="/static/build/styles/samples.37902ba3b7fe.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
            
         <title>Canarias LIFE</title>
     </head>
     <body>
-        
+        <!--el div "fullscreen" es realmente el que pasa a pantalla completa y no el video-->
         <div id="fullscreen" class="full">
+            <!--este div contiene el iframe, el logo de canariasLIFE y el boton para pantalla completa-->
             <div class="cont-iframe">   
-                <div class="cLogo"><a href="#"><img src="./logo.jpg" alt="logo" width= "150px" height= "75px"></a></div>  
-                <iframe allowfullscreen="" src="https://www.youtube.com/embed/tgbNymZ7vqY" scrolling="auto" class="fr">
-                    
-                Texto alternativo para navegadores que no aceptan iframes
+                <div class="cLogo"><a href="#"><img src="./logo.jpg" alt="logo"></a></div>  
+                <iframe allowfullscreen="" src="https://www.youtube.com/embed/UCd5nzsRi0s" scrolling="auto" class="fr" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture">    
+                canarias LIFE
                 </iframe>
-                <button id="fullscreen-button" class="btt">Entrar en pantalla completa</button>
+                <button id="fullscreen-button" class="btt"><div class="btn-full"></div></button>
             </div> 
-        
-       </div>      
+            
+       </div>  
+    
+<!--Scrip que pasa el div "fullscreen" a pantalla completa-->           
 <script>
-        var fullscreenButton = document.getElementById("fullscreen-button");
-        var fullscreenDiv    = document.getElementById("fullscreen");
-        var fullscreenFunc   = fullscreenDiv.requestFullscreen;
 
-        if (!fullscreenFunc) {
-            ['mozRequestFullScreen',
-            'msRequestFullscreen',
-            'webkitRequestFullScreen'].forEach(function (req) {
-                fullscreenFunc = fullscreenFunc || fullscreenDiv[req];
-            });
-        }
-
-        function enterFullscreen() {
-        fullscreenFunc.call(fullscreenDiv);
-        }
-
-        fullscreenButton.addEventListener('click', enterFullscreen);
-
-        </script>
+$('#fullscreen-button').on('click', function(){
+ 
+  if (
+    document.fullscreenElement ||
+    document.webkitFullscreenElement ||
+    document.mozFullScreenElement ||
+    document.msFullscreenElement
+  ) {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+  } else {
+    element = $('#fullscreen').get(0);
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    }
+  }
+});
+</script>
         
     </body>
 </html>
